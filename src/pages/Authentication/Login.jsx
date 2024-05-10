@@ -5,90 +5,88 @@ import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../AuthProvider/AuthProvider";
+import loginImg from "../../assets/images/undraw_my_password_re_ydq7.svg";
 
 const Login = () => {
+  const [showHide, setShowHide] = useState(true);
+  const [passType, setPassType] = useState(true);
+  const { loginUser, googleLogin, githubLogin } = useContext(authContext);
 
-    const [showHide, setShowHide] = useState(true);
-    const [passType, setPassType] = useState(true);
-    const { loginUser, googleLogin, githubLogin } = useContext(authContext);
-  
-    const location = useLocation();
-    const navigate = useNavigate();
-    console.log(location);
-  
-    const {
-      register,
-      handleSubmit,
-    } = useForm();
-  
-    const onSubmit = (data) => {
-      console.log(data);
-  
-      loginUser(data.email, data.pass)
-        .then((res) => {
-          if (res) {
-            toast.success("Login Successfull");
-            navigate(location?.state ? location.state : "/");
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-          toast.error(error.message.split("/")[1].replaceAll(")", ""));
-        });
-    };
-  
-    // handle google login
-    const handleGoogleLogin = () => {
-      googleLogin()
-        .then((res) => {
-          if (res) {
-            toast.success("Login Successfull");
-            navigate(location?.state ? location.state : "/");
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-  
-    // handle github login
-    const handleGithubLogin = () => {
-      githubLogin()
-        .then((res) => {
-          if (res) {
-            toast.success("Login Successfull");
-            navigate(location?.state ? location.state : "/");
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-  
-    //handle show hide icon
-    const handleShowHide = () => {
-      setShowHide(!showHide);
-      setPassType(!passType);
-    }
-    return (
-        <div className="lg:grid grid-cols-2 gap-8">
-            <div>
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location);
 
-            </div>
+  const { register, handleSubmit } = useForm();
 
-            <div>
+  const onSubmit = (data) => {
+    console.log(data);
+
+    loginUser(data.email, data.pass)
+      .then((res) => {
+        if (res) {
+          toast.success("Login Successfull");
+          navigate(location?.state ? location.state : "/");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.message.split("/")[1].replaceAll(")", ""));
+      });
+  };
+
+  // handle google login
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((res) => {
+        if (res) {
+          toast.success("Login Successfull");
+          navigate(location?.state ? location.state : "/");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // handle github login
+  const handleGithubLogin = () => {
+    githubLogin()
+      .then((res) => {
+        if (res) {
+          toast.success("Login Successfull");
+          navigate(location?.state ? location.state : "/");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  //handle show hide icon
+  const handleShowHide = () => {
+    setShowHide(!showHide);
+    setPassType(!passType);
+  };
+  return (
+    <div className="max-w-7xl mx-auto lg:grid grid-cols-2 md:py-28 py-6">
       <Helmet>
         <title>Login</title>
       </Helmet>
-      <div className="xl:w-1/3 md:w-2/3 text-forth p-8 bg-secondary mx-auto md:my-20 my-6">
-        <h1 className="text-3xl font-bold text-center mb-8">Login Now</h1>
+      <div>
+        <img src={loginImg} alt="" />
+      </div>
+
+      <div className=" md:w-2/3 text-forth p-8 bg-white/60 dark:bg-white/40 shadow-lg shadow-secondary dark:shadow-white border border-white  mx-auto ">
+        <h1 className="text-3xl text-primary dark:text-white font-bold text-center mb-8">
+          Login Now
+        </h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <p className="font-semibold mb-1">Email</p>
             <input
               {...register("email")}
-              className="w-full bg-third p-2 border-l-4 border-forth"
+              className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
               type="email"
               placeholder="email"
             />
@@ -97,7 +95,7 @@ const Login = () => {
             <p className="font-semibold mb-1">Password</p>
             <input
               {...register("pass")}
-              className="w-full bg-third p-2 border-l-4 border-forth"
+              className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
               type={passType ? "password" : "text"}
               placeholder="password"
             />
@@ -137,8 +135,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-        </div>
-    );
+  );
 };
 
 export default Login;

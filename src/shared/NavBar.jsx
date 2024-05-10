@@ -42,7 +42,7 @@ const NavBar = () => {
 
   return (
     <div>
-      <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white/60 dark:bg-white/40 shadow-lg shadow-white border border-white max-w-7xl mx-auto">
+      <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white/60 dark:bg-white/40 shadow-lg shadow-secondary dark:shadow-white border border-white max-w-7xl mx-auto">
         <NavbarContent className="w-full">
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
