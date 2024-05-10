@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { PropTypes } from "prop-types";
 import {
-  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -15,11 +14,11 @@ import auth from "./../firebase/firebase.config";
 export const authContext = createContext();
 
 const googleProvider = new GoogleAuthProvider();
-const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
+  const [isRefetch, setRefetch] = useState(true)
 
   // create user
   const createUser = (email, pass) => {
@@ -37,12 +36,6 @@ const AuthProvider = ({ children }) => {
   const googleLogin = () => {
     setLoader(true);
     return signInWithPopup(auth, googleProvider);
-  };
-
-  // github login
-  const githubLogin = () => {
-    setLoader(true);
-    return signInWithPopup(auth, githubProvider);
   };
 
   // update user
@@ -71,6 +64,9 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  // refetch for show user img without reload
+  const refetch = () => setRefetch(!isRefetch)
+
   const authInfo = {
     user,
     setUser,
@@ -78,8 +74,8 @@ const AuthProvider = ({ children }) => {
     loginUser,
     logoutUser,
     googleLogin,
-    githubLogin,
     updateUser,
+    refetch,
     loader,
   };
 

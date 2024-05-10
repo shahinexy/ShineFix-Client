@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { authContext } from "../../AuthProvider/AuthProvider";
 const Register = () => {
-  const { createUser, updateUser } = useContext(authContext);
+  const { createUser, updateUser, refetch } = useContext(authContext);
   const [showHide, setShowHide] = useState(true);
   const [passType, setPassType] = useState(true);
 
@@ -30,11 +30,7 @@ const Register = () => {
         navegate("/");
         if (res) {
           updateUser(data.name, data.photo)
-            .then(
-              setTimeout(() => {
-                window.location.reload();
-              }, 1000)
-            )
+            .then(()=> refetch() )
             .catch((error) => console.log(error));
         }
       })

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../AuthProvider/AuthProvider";
 import loginImg from "../../assets/images/undraw_my_password_re_ydq7.svg";
@@ -11,7 +11,7 @@ import { Button } from "@nextui-org/react";
 const Login = () => {
   const [showHide, setShowHide] = useState(true);
   const [passType, setPassType] = useState(true);
-  const { loginUser, googleLogin, githubLogin } = useContext(authContext);
+  const { loginUser, googleLogin } = useContext(authContext);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -36,20 +36,6 @@ const Login = () => {
   // handle google login
   const handleGoogleLogin = () => {
     googleLogin()
-      .then((res) => {
-        if (res) {
-          toast.success("Login Successfull");
-          navigate(location?.state ? location.state : "/");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  // handle github login
-  const handleGithubLogin = () => {
-    githubLogin()
       .then((res) => {
         if (res) {
           toast.success("Login Successfull");

@@ -11,12 +11,14 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
+  Tooltip,
 } from "@nextui-org/react";
 import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
 import logo from "../assets/images/icons8-home-repair-64.png";
 import { FaAngleDown } from "react-icons/fa";
+import { TbUserCircle } from "react-icons/tb";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -89,16 +91,16 @@ const NavBar = () => {
               <DropdownTrigger>
                 <Button
                   disableRipple
-                  className="p-0 bg-transparent data-[hover=true]:bg-transparent text-primary dark:text-[#EEF7FF] px-2 text-base text-medium"
+                  className="p-0 bg-transparent data-[hover=true]:bg-transparent text-primary dark:text-[#EEF7FF] px-2 text-base font-medium"
                   radius="sm"
                   variant="light"
                 >
-                  Features <FaAngleDown></FaAngleDown>
+                  Dashboard{" "}
+                  <FaAngleDown className="text-primary dark:text-secondary"></FaAngleDown>
                 </Button>
               </DropdownTrigger>
             </NavbarItem>
             <DropdownMenu
-              aria-label="ACME features"
               className="w-[150px]"
               itemClasses={{
                 base: "gap-4",
@@ -167,12 +169,32 @@ const NavBar = () => {
         </NavbarContent>
         <NavbarContent justify="end">
           {user ? (
-            <Button
-              onClick={logoutUser}
-              className="rounded-none bg-primary dark:bg-secondary text-base text-white font-medium"
-            >
-              Logout
-            </Button>
+            <>
+              <div>
+                {user?.photoURL ? (
+                  <>
+                    <Tooltip showArrow={true} content={user?.displayName}>
+                    <img
+                      className="rounded-full w-10 h-10"
+                      src={user.photoURL}
+                      alt=""
+                    />
+                    </Tooltip>
+
+                  </>
+                ) : (
+                  <Tooltip showArrow={true} content={user?.displayName}>
+                  <TbUserCircle className="text-4xl text-forth"></TbUserCircle>
+                </Tooltip>
+                )}
+              </div>
+              <Button
+                onClick={logoutUser}
+                className="rounded-none bg-primary dark:bg-secondary text-base text-white font-medium"
+              >
+                Logout
+              </Button>
+            </>
           ) : (
             <>
               <Link to={"/login"}>
@@ -196,12 +218,12 @@ const NavBar = () => {
                   radius="sm"
                   variant="light"
                 >
-                  Features <FaAngleDown></FaAngleDown>
+                  Dashboard{" "}
+                  <FaAngleDown className="text-primary dark:text-secondary"></FaAngleDown>
                 </Button>
               </DropdownTrigger>
             </NavbarItem>
             <DropdownMenu
-              aria-label="ACME features"
               className="w-[250px]"
               itemClasses={{
                 base: "gap-4",
