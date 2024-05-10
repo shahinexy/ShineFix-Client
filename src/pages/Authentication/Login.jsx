@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../AuthProvider/AuthProvider";
 import loginImg from "../../assets/images/undraw_my_password_re_ydq7.svg";
+import { Button } from "@nextui-org/react";
 
 const Login = () => {
   const [showHide, setShowHide] = useState(true);
@@ -121,18 +122,12 @@ const Login = () => {
           </p>
         </form>
         <div className="flex gap-3">
-          <button
+          <Button
             onClick={handleGoogleLogin}
-            className="btn flex-1 text-xl text-forth font-semibold hover:bg-primary rounded-none border-2 border-primary hover:border-forth bg-inherit mt-6"
+            className="btn w-full text-xl text-forth dark:text-white font-semibold bg-primary/30 rounded-none border-2 border-forth border-primary dark:border-secondary mt-6"
           >
             <FaGoogle></FaGoogle> Login
-          </button>
-          <button
-            onClick={handleGithubLogin}
-            className="btn flex-1 text-xl text-forth font-semibold hover:bg-primary rounded-none border-2 border-primary hover:border-forth bg-inherit mt-6"
-          >
-            <FaGithub></FaGithub> Login
-          </button>
+          </Button>
         </div>
       </div>
     </div>
