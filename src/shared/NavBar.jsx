@@ -6,15 +6,15 @@ import {
   NavbarItem,
   NavbarMenuToggle,
   NavbarMenu,
-  //   NavbarMenuItem,
-  // Link,
   Button,
 } from "@nextui-org/react";
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { authContext } from '../AuthProvider/AuthProvider';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const {user, logoutUser} = useContext(authContext)
 
   const navItems = (
     <>
@@ -59,9 +59,13 @@ const NavBar = () => {
           {navItems}
         </NavbarContent>
         <NavbarContent justify="end">
-          <NavbarItem className="hidden lg:flex">
+          {
+            user ? <Button onClick={logoutUser} className='rounded-none bg-primary dark:bg-secondary text-base text-white font-medium'>Logout</Button>
+            : <>            
             <Link to={'/login'}><Button className='rounded-none bg-primary dark:bg-secondary text-base text-white font-medium'>Login</Button></Link>
-          </NavbarItem>
+            </>
+          }
+            
         </NavbarContent>
         {/* mobile  */}
         <NavbarMenu>{navItems}</NavbarMenu>

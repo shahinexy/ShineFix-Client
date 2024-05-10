@@ -60,7 +60,7 @@ const Register = () => {
       </div>
 
       <div className="md:w-2/3 text-forth p-8 bg-white/60 dark:bg-white/40 shadow-lg shadow-secondary dark:shadow-white border border-white  mx-auto">
-        <h1 className="text-3xl text-primary dark:text-white font-bold text-center mb-8">Register Now</h1>
+        <h1 className="text-3xl text-primary dark:text-secondary font-bold text-center mb-8">Register Now</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
@@ -109,13 +109,13 @@ const Register = () => {
             </span>
           </div>
           <div>
-            <button className="btn w-full text-xl text-forth font-semibold hover:bg-primary rounded-none border-2 border-forth hover:border-primary bg-inherit mt-6">
+            <button className="btn w-full text-xl text-forth dark:text-white font-semibold hover:bg-primary rounded-none border-2 border-forth border-primary dark:border-secondary bg-inherit mt-6">
               Register
             </button>
           </div>
           <p>
             Already have an account?{" "}
-            <Link to={"/login"} className="font-bold underline">
+            <Link to={"/login"} className="font-bold underline text-primary dark:text-secondary">
               Login
             </Link>
           </p>

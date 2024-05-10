@@ -22,7 +22,6 @@ const useTheme = () => {
 
     useEffect(() => {
         const currentMode = localStorage.getItem('mode') ;
-        console.log(currentMode);
         document.documentElement.classList.add(currentMode)
         setMode(currentMode)
     }, [])
