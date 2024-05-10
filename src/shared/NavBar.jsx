@@ -11,6 +11,7 @@ import {
 import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { authContext } from '../AuthProvider/AuthProvider';
+import logo from '../assets/images/icons8-home-repair-64.png'
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -50,7 +51,8 @@ const NavBar = () => {
           />
           <NavbarBrand>
             {/* <AcmeLogo /> */}
-            <p className="font-bold text-inherit">ACME</p>
+            <img className='w-10' src={logo} alt="" />
+            <p className="text-xl font-bold text-inherit">Shine<span className='text-primary dark:text-secondary'>Fix</span></p>
           </NavbarBrand>
         </NavbarContent>
 
