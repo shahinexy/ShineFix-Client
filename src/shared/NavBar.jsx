@@ -7,11 +7,11 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   //   NavbarMenuItem,
-  Link,
+  // Link,
   Button,
 } from "@nextui-org/react";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -60,7 +60,7 @@ const NavBar = () => {
         </NavbarContent>
         <NavbarContent justify="end">
           <NavbarItem className="hidden lg:flex">
-            <Link href="#"><Button className='rounded-none bg-primary dark:bg-secondary text-base text-white font-medium'>Login</Button></Link>
+            <Link to={'/login'}><Button className='rounded-none bg-primary dark:bg-secondary text-base text-white font-medium'>Login</Button></Link>
           </NavbarItem>
         </NavbarContent>
         {/* mobile  */}
