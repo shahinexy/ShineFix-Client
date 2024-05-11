@@ -49,7 +49,7 @@ const Register = () => {
   return (
     <div className="max-w-7xl mx-auto lg:grid grid-cols-2 md:py-10 py-6">
       <Helmet>
-        <title>Legister</title>
+        <title>Register</title>
       </Helmet>
       <div>
         <img src={registerImg} alt="" />

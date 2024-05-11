@@ -32,7 +32,7 @@ const ServiceCard = () => {
           </div>
 
           <p className="py-3 text-xl font-semibold text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary">
-            <Link className="flex items-center justify-center duration-500 hover:scale-110 hover:-rotate-2">
+            <Link to={'/serviceDetails'} className="flex items-center justify-center duration-500 hover:scale-110 hover:-rotate-2">
               View Details &nbsp; &nbsp;----
               <FaAngleDoubleRight className="text-2xl mt-[2px]"></FaAngleDoubleRight>{" "}
             </Link>

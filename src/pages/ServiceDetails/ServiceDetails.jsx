@@ -77,7 +77,7 @@ const ServiceDetails = () => {
         {/* ======= modal =========  */}
 
         <Modal size="4xl" backdrop="blur" scrollBehavior="outside" isOpen={isOpen} onOpenChange={onOpenChange}>
-        <ModalContent>
+        <ModalContent className="shadow-2xl shadow-secondary">
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 text-xl">Service Details</ModalHeader>
@@ -90,9 +90,9 @@ const ServiceDetails = () => {
                 <Button variant="light" onPress={onClose} className="rounded-none border duration-400 hover:scale-105 border-red-700 text-base">
                   Cancle
                 </Button>
-                <Button onPress={onClose} className="rounded-none border duration-400 hover:scale-105 border-primary bg-primary text-base">
+                {/* <Button onPress={onClose} className="rounded-none border duration-400 hover:scale-105 border-primary bg-primary text-base">
                 Purchase
-                </Button>
+                </Button> */}
               </ModalFooter>
             </>
           )}

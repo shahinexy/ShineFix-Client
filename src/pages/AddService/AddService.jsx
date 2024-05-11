@@ -5,17 +5,26 @@ import img3 from "../../assets/images/icon-05-101x100.png";
 import img4 from "../../assets/images/icon-06-101x100.png";
 import { useForm } from "react-hook-form";
 import { authContext } from "../../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const AddService = () => {
-    const {user} = useContext(authContext)
+  const { user } = useContext(authContext);
 
   const { register, handleSubmit } = useForm();
-console.log(user);
+  console.log(user);
   const onSubmit = (data) => {
-    console.log({...data, providerEmail: user.email, providerPhoto: user.photoURL, providerName: user.displayName});
+    console.log({
+      ...data,
+      providerEmail: user.email,
+      providerPhoto: user.photoURL,
+      providerName: user.displayName,
+    });
   };
   return (
     <div className="max-w-7xl mx-auto px-4">
+      <Helmet>
+        <title>Add Services</title>
+      </Helmet>
       <div className="md:w-4/6 my-10">
         <h1 className="md:text-4xl text-3xl font-bold text-primary dark:text-secondary uppercase mb-4">
           Thsi is a title for add services
@@ -76,7 +85,7 @@ console.log(user);
                 <div className="w-full">
                   <p className="font-semibold mb-1">Description</p>
                   <textarea
-                  {...register("description")}
+                    {...register("description")}
                     className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
                     placeholder="description"
                   ></textarea>
