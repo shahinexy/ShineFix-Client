@@ -3,7 +3,7 @@ import img from "../../../assets/images/ey-male-carpenter-using-tape-measure-pie
 import { FaAngleDoubleRight } from "react-icons/fa";
 const HomeCard = () => {
   return (
-    <div className="border border-primary dark:border-secondary space-y-3 md:p-8 p-5">
+    <div className="border border-primary dark:border-secondary space-y-3 md:p-8 p-5 shadow-lg shadow-secondary">
       <h1 className="text-2xl font-bold text-primary dark:text-secondary">
         Tis is items name title
       </h1>
@@ -15,7 +15,7 @@ const HomeCard = () => {
         pariatur accusamus praesentium quaerat aut? Atque in, provident ut natus
         eligendi vel hic maxime
       </p>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between flex-wrap-reverse gap-1 items-center">
         <div className="flex gap-4 items-center">
           <img className="w-14 h-14 rounded-full" src={img} alt="" />
           <p className="text-lg font-bold">Provider Name</p>
@@ -28,7 +28,7 @@ const HomeCard = () => {
       </div>
 
       <p className="py-3 text-xl font-semibold text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary">
-        <Link className="flex items-center justify-center">
+        <Link className="flex items-center justify-center duration-500 hover:scale-110 hover:-rotate-2">
           View Details &nbsp; &nbsp;----
           <FaAngleDoubleRight className="text-2xl mt-[2px]"></FaAngleDoubleRight>{" "}
         </Link>

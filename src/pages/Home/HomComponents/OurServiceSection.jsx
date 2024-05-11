@@ -1,4 +1,6 @@
+import { Button } from "@nextui-org/react";
 import HomeCard from "./HomeCard";
+import { Link } from "react-router-dom";
 
 const OurServiceSection = () => {
   return (
@@ -15,8 +17,16 @@ const OurServiceSection = () => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 grid-cols-1">
-            <HomeCard></HomeCard>
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
+        <HomeCard></HomeCard>
+      </div>
+
+      <div className="flex justify-center my-10">
+        <Link>
+          <Button className="rounded-none bg-primary dark:bg-secondary text-xl text-white uppercase px-20 py-6 hover:text-black">
+            Show All
+          </Button>
+        </Link>
       </div>
     </div>
   );
