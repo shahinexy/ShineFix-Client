@@ -1,14 +1,13 @@
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaPhone, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import logo from '../assets/images/icons8-home-repair-64.png'
-import { LiaLinkedin } from "react-icons/lia";
 
 const Footer = () => {
     return (
         <div className="dark:bg-primary bg-[#7AB2B2]  md:py-5">
         <footer className="max-w-7xl mx-auto text-forth p-5">
-          <h1 className="pb-5 border-b border-third">
+          <h1 className="pb-5 border-b ">
           <Link className="text-2xl font-bold flex items-center">
           <img className="w-10" src={logo} alt="" />
               Shine<span className="text-primary dark:text-secondary">Fix</span>
