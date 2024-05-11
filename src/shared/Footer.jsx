@@ -1,19 +1,22 @@
-import { FaFacebook, FaGithub, FaInstagram, FaPhone, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaPhone, FaTwitter } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
+import logo from '../assets/images/icons8-home-repair-64.png'
+import { LiaLinkedin } from "react-icons/lia";
 
 const Footer = () => {
     return (
         <div className="dark:bg-primary bg-[#7AB2B2]  md:py-5">
         <footer className="max-w-7xl mx-auto text-forth p-5">
-          <h1 className="pb-5 border-b-2 border-third">
-            <Link to={"/"} className="text-2xl font-bold text-third">
-              Shin<span className="text-forth">Art</span>
+          <h1 className="pb-5 border-b border-third">
+          <Link className="text-2xl font-bold flex items-center">
+          <img className="w-10" src={logo} alt="" />
+              Shine<span className="text-primary dark:text-secondary">Fix</span>
             </Link>
           </h1>
           <div className="grid md:grid-cols-3 grid-cols-1 gap-6 mt-5 text-forth">
             <div>
-              <h2 className=" text-xl font-semibold border-b-2 border-third inline-block px-2 md:mb-7 mb-3">
+              <h2 className=" text-xl font-semibold border-b border-third inline-block px-2 md:mb-7 mb-3">
                 ABOUT
               </h2>
               <p className="font-semibold">
@@ -22,7 +25,7 @@ const Footer = () => {
             </div>
             <div className="flex gap-5 md:justify-around flex-wrap">
               <div>
-                <h2 className=" text-xl font-semibold border-b-2 border-third inline-block px-2  md:mb-7 mb-3">
+                <h2 className=" text-xl font-semibold border-b border-third inline-block px-2  md:mb-7 mb-3">
                   CONTACT
                 </h2>
                 <div className="flex font-semibold flex-col gap-3">
@@ -31,19 +34,18 @@ const Footer = () => {
                 </div>
               </div>
               <div>
-                <h2 className=" text-xl font-semibold border-b-2 border-third inline-block px-2  md:mb-7 mb-3">
+                <h2 className=" text-xl font-semibold border-b border-third inline-block px-2  md:mb-7 mb-3">
                   SOCIAL
                 </h2>
                 <div className="flex text-3xl gap-3 text-forth">
-                  <FaFacebook></FaFacebook>
-                  <FaTwitter></FaTwitter>
-                  <FaGithub></FaGithub>
-                  <FaInstagram></FaInstagram>
+                  <a href="https://www.facebook.com/profile.php?id=100024230347963"><FaFacebook></FaFacebook></a>
+                  <a href="https://www.linkedin.com/in/shahinaalam/"><FaLinkedin></FaLinkedin></a>
+                  <a href="https://github.com/shahinexy"> <FaGithub></FaGithub></a>
                 </div>
               </div>
             </div>
             <div>
-              <h2 className=" text-xl font-semibold border-b-2 border-third inline-block px-2 md:mb-7 mb-3">
+              <h2 className=" text-xl font-semibold border-b border-third inline-block px-2 md:mb-7 mb-3">
                 NEWSLETTER
               </h2>
               <p className="font-semibold">Enter your email</p>
@@ -59,7 +61,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <p className="text-sm text-center mt-5 pt-2 border-t-2 border-third">Copyright © 2024 - All right reserved</p>
+          <p className="text-sm text-center mt-5 pt-2 border-t border-third">Copyright © 2024 - All right reserved</p>
         </footer>
       </div>
     );

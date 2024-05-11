@@ -71,10 +71,13 @@ const NavBar = () => {
           />
           <NavbarBrand>
             {/* <AcmeLogo /> */}
-            <img className="w-10" src={logo} alt="" />
-            <p className="text-xl font-bold text-inherit">
-              Shine<span className="text-primary dark:text-secondary">Fix</span>
-            </p>
+            <Link to={"/"} className="flex items-center">
+              <img className="w-10" src={logo} alt="" />
+              <p className="text-xl font-bold text-inherit">
+                Shine
+                <span className="text-primary dark:text-secondary">Fix</span>
+              </p>
+            </Link>
           </NavbarBrand>
         </NavbarContent>
 
@@ -174,18 +177,17 @@ const NavBar = () => {
                 {user?.photoURL ? (
                   <>
                     <Tooltip showArrow={true} content={user?.displayName}>
-                    <img
-                      className="rounded-full w-10 h-10"
-                      src={user.photoURL}
-                      alt=""
-                    />
+                      <img
+                        className="rounded-full w-10 h-10"
+                        src={user.photoURL}
+                        alt=""
+                      />
                     </Tooltip>
-
                   </>
                 ) : (
                   <Tooltip showArrow={true} content={user?.displayName}>
-                  <TbUserCircle className="text-4xl text-forth"></TbUserCircle>
-                </Tooltip>
+                    <TbUserCircle className="text-4xl text-forth"></TbUserCircle>
+                  </Tooltip>
                 )}
               </div>
               <Button
