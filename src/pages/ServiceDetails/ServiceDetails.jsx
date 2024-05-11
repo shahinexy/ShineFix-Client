@@ -2,8 +2,13 @@ import { Link } from "react-router-dom";
 import img from "../../assets/images/ey-male-carpenter-using-tape-measure-piece-of-wood-in-wood-processing-plants.jpg";
 import { Helmet } from "react-helmet";
 import { HiLocationMarker } from "react-icons/hi";
-import { Button } from "@nextui-org/react";
+
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
+import ServiceForm from "./ServiceForm";
+
 const ServiceDetails = () => {
+    const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
   return (
     <div className="my-10 max-w-7xl mx-auto p-4">
       <Helmet>
@@ -23,9 +28,9 @@ const ServiceDetails = () => {
         </div>
       </div>
 
-      <div className="md:flex gap-8 mt-10 items-center">
+      <div className="flex lg:flex-row flex-col-reverse gap-8 mt-10 items-center">
         <div className="md:w-6/12 space-y-3">
-          <h2 className="bg-primary/70 dark:bg-secondary/70 text-3xl font-bold p-3">
+          <h2 className="shadow-md shadow-secondary text-3xl font-bold p-3">
             Tis is service details title
           </h2>
           <p>
@@ -41,12 +46,12 @@ const ServiceDetails = () => {
               <p className="text-lg font-bold">Provider Name</p>
             </div>
             <div>
-              <p className="border border-primary dark:border-secondary px-3 py-1 font-medium">
+              <p className="shadow-md shadow-secondary px-3 py-1 font-medium">
                 Price: 231$
               </p>
             </div>
           </div>
-          <h2 className="bg-primary/70 dark:bg-secondary/70 text-3xl font-bold p-3">
+          <h2 className="shadow-md shadow-secondary text-3xl font-bold p-3">
           Provider Information:
           </h2>
           <div className="flex gap-5">
@@ -60,15 +65,39 @@ const ServiceDetails = () => {
           </div>
           </div>
         </div>
-
         <div className="md:w-6/12">
           <img className="shadow-2xl shadow-secondary w-full" src={img} alt="" />
         </div>
       </div>
 
         <div className="flex justify-center md:my-10 my-5">
-            <Button className="rounded-none bg-primary dark:bg-secondary text-xl text-white uppercase px-20 py-6 hover:text-black">Book Now</Button>
+            <Button onPress={onOpen} className="rounded-none bg-primary dark:bg-secondary text-xl text-white uppercase px-20 py-6 hover:text-black duration-500 hover:scale-110">Book Now</Button>
         </div>
+
+        {/* ======= modal =========  */}
+
+        <Modal size="4xl" backdrop="blur" scrollBehavior="outside" isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1 text-xl">Service Details</ModalHeader>
+              <ModalBody>
+
+                <ServiceForm></ServiceForm>
+
+              </ModalBody>
+              <ModalFooter>
+                <Button variant="light" onPress={onClose} className="rounded-none border duration-400 hover:scale-105 border-red-700 text-base">
+                  Cancle
+                </Button>
+                <Button onPress={onClose} className="rounded-none border duration-400 hover:scale-105 border-primary bg-primary text-base">
+                Purchase
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
 
     </div>
   );

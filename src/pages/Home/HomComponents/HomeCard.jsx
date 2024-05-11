@@ -21,7 +21,7 @@ const HomeCard = () => {
           <p className="text-lg font-bold">Provider Name</p>
         </div>
         <div>
-          <p className="border border-primary dark:border-secondary px-3 py-1 font-medium">
+          <p className="shadow-md shadow-secondary px-3 py-1 font-medium">
             Price: 231$
           </p>
         </div>

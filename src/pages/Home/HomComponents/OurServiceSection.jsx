@@ -23,7 +23,7 @@ const OurServiceSection = () => {
 
       <div className="flex justify-center my-10">
         <Link>
-          <Button className="rounded-none bg-primary dark:bg-secondary text-xl text-white uppercase px-20 py-6 hover:text-black">
+          <Button className="rounded-none bg-primary dark:bg-secondary text-xl text-white uppercase px-20 py-6 hover:text-black duration-500 hover:scale-110">
             Show All
           </Button>
         </Link>
