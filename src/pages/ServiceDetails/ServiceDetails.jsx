@@ -9,10 +9,8 @@ import ServiceForm from "./ServiceForm";
 const ServiceDetails = () => {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const data = useLoaderData()
-    console.log(data);
 
     const {
-      _id,
       serviceName,
       servicePhoto,
       description,
@@ -93,7 +91,7 @@ const ServiceDetails = () => {
               <ModalHeader className="flex flex-col gap-1 text-xl">Service Details</ModalHeader>
               <ModalBody>
 
-                <ServiceForm></ServiceForm>
+                <ServiceForm data={data}></ServiceForm>
 
               </ModalBody>
               <ModalFooter>

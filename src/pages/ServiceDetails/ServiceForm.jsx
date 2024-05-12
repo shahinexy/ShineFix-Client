@@ -1,18 +1,41 @@
 import { useContext } from "react";
 import { authContext } from "../../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
+import { PropTypes } from "prop-types";
+import axios from "axios";
+import Swal from "sweetalert2";
 
-const ServiceForm = () => {
+const ServiceForm = ({ data }) => {
   const { user } = useContext(authContext);
 
-  const { register, handleSubmit } = useForm();
+  const {
+    _id,
+    serviceName,
+    servicePhoto,
+    servicePrice,
+    providerName,
+    providerEmail,
+  } = data;
+
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    console.log({
-      ...data,
-      providerEmail: user.email,
-      providerPhoto: user.photoURL,
-      providerName: user.displayName,
-    });
+    console.log(data);
+
+    axios
+      .post(`${import.meta.env.VITE_SERVER_API}/bookedServices`, data)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.acknowledged) {
+          reset();
+          Swal.fire({
+            icon: "success",
+            title: "Service Booked Successfully ",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -25,7 +48,7 @@ const ServiceForm = () => {
               {...register("ServiceId")}
               className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
               type="Service Id"
-              placeholder="url"
+              value={_id}
             />
           </div>
           <div className="w-full">
@@ -33,8 +56,7 @@ const ServiceForm = () => {
             <input
               {...register("serviceName")}
               className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
-              type="text"
-              placeholder="name"
+              value={serviceName}
             />
           </div>
         </div>
@@ -43,10 +65,10 @@ const ServiceForm = () => {
           <div className="w-full">
             <p className="font-semibold mb-1">Photo URL</p>
             <input
-              {...register("photo")}
+              {...register("servicePhoto")}
               className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
-              type="number"
-              placeholder="url"
+              type="text"
+              value={servicePhoto}
             />
           </div>
           <div className="w-full">
@@ -54,19 +76,18 @@ const ServiceForm = () => {
             <input
               {...register("providerEmail")}
               className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
-              type="text"
-              placeholder="Provider email"
+              value={providerEmail}
             />
           </div>
         </div>
+
         <div className="md:flex gap-3">
           <div className="w-full">
             <p className="font-semibold mb-1">Provider Name</p>
             <input
               {...register("providerName")}
               className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
-              type="number"
-              placeholder="Provider Name"
+              value={providerName}
             />
           </div>
           <div className="w-full">
@@ -74,8 +95,7 @@ const ServiceForm = () => {
             <input
               {...register("currentUseremail ")}
               className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
-              type="text"
-              placeholder="Current User email "
+              value={user.email}
             />
           </div>
         </div>
@@ -86,8 +106,7 @@ const ServiceForm = () => {
             <input
               {...register("currentUserName")}
               className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
-              type="number"
-              placeholder="Current User Name"
+              value={user.displayName}
             />
           </div>
           <div className="w-full">
@@ -95,28 +114,32 @@ const ServiceForm = () => {
             <input
               {...register("servicePrice")}
               className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
-              type="text"
-              placeholder="price"
+              value={servicePrice}
             />
           </div>
         </div>
 
         <div className="w-full">
-          <p className="font-semibold mb-1">Service Taking Date</p>
+          <p className="font-semibold mb-1">
+            Service Taking Date <span className="text-red-500">*</span>
+          </p>
           <input
             {...register("serviceTakingDate")}
             className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
-            type="text"
-            placeholder="Service Taking Date"
+            type="date"
+            required
           />
         </div>
 
         <div className="w-full">
-          <p className="font-semibold mb-1">Special instruction</p>
+          <p className="font-semibold mb-1">
+            Special instruction <span className="text-red-500">*</span>
+          </p>
           <textarea
-            {...register("description")}
+            {...register("instruction")}
             className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
-            placeholder="description"
+            placeholder="text here"
+            required
           ></textarea>
         </div>
         <div>
@@ -127,6 +150,10 @@ const ServiceForm = () => {
       </form>
     </div>
   );
+};
+
+ServiceForm.propTypes = {
+  data: PropTypes.object,
 };
 
 export default ServiceForm;

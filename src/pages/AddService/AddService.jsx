@@ -39,7 +39,7 @@ const AddService = () => {
           reset()
           Swal.fire({
             icon: "success",
-            title: "Your Service Added Successfully ",
+            title: "Service Added Successfully ",
             showConfirmButton: false,
             timer: 1500
           });
