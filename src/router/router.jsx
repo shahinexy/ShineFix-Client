@@ -42,8 +42,9 @@ const router = createBrowserRouter([
         path: "/serviceToDo",
         element: <PrivetRoute><ServiceToDo></ServiceToDo></PrivetRoute>,
       },{
-        path: '/serviceDetails',
-        element: <PrivetRoute><ServiceDetails></ServiceDetails></PrivetRoute>
+        path: '/serviceDetails/:id',
+        element: <PrivetRoute><ServiceDetails></ServiceDetails></PrivetRoute>,
+        loader: ({params}) => fetch(`${import.meta.env.VITE_SERVER_API}/services/${params.id}`)
       },
       {
         path: "/register",

@@ -6,20 +6,48 @@ import img4 from "../../assets/images/icon-06-101x100.png";
 import { useForm } from "react-hook-form";
 import { authContext } from "../../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddService = () => {
   const { user } = useContext(authContext);
 
-  const { register, handleSubmit } = useForm();
-  console.log(user);
+  const { register, handleSubmit, reset } = useForm();
+
   const onSubmit = (data) => {
     console.log({
       ...data,
       providerEmail: user.email,
       providerPhoto: user.photoURL,
       providerName: user.displayName,
+      status: "pending",
     });
+
+    const serviseData = {
+      ...data,
+      providerEmail: user.email,
+      providerPhoto: user.photoURL,
+      providerName: user.displayName,
+      status: "pending",
+    };
+
+    axios
+      .post(`${import.meta.env.VITE_SERVER_API}/services`, serviseData)
+      .then((res) => {
+        console.log(res.data)
+        if(res.data.acknowledged){
+          reset()
+          Swal.fire({
+            icon: "success",
+            title: "Your Service Added Successfully ",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      })
+      .catch((error) => console.log(error));
   };
+
   return (
     <div className="max-w-7xl mx-auto px-4">
       <Helmet>

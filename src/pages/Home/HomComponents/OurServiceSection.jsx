@@ -1,8 +1,25 @@
 import { Button } from "@nextui-org/react";
 import HomeCard from "./HomeCard";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import Loader from "../../../components/Loader";
 
 const OurServiceSection = () => {
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["serviceSection"],
+    queryFn: async () => {
+      const res = await axios.get(
+        `${import.meta.env.VITE_SERVER_API}/services`
+      );
+      return res.data;
+    },
+  });
+  console.log(data);
+
+  if (isPending) return <Loader></Loader>;
+  if (isError) console.log(error.message);
+
   return (
     <div>
       <div className="md:w-4/6 my-10">
@@ -18,11 +35,13 @@ const OurServiceSection = () => {
       </div>
 
       <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
-        <HomeCard></HomeCard>
+        {
+          data.slice(0,6).map(data => <HomeCard key={data._id} data={data}></HomeCard>)
+        }
       </div>
 
       <div className="flex justify-center my-10">
-        <Link>
+        <Link to={'/services'}>
           <Button className="rounded-none bg-primary dark:bg-secondary text-xl text-white uppercase px-20 py-6 hover:text-black duration-500 hover:scale-110">
             Show All
           </Button>

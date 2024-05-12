@@ -1,7 +1,24 @@
 import { Helmet } from "react-helmet";
 import ServiceCard from "../Services/ServiceComponents/ServiceCard";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import Loader from "../../components/Loader";
 
 const BookedServices = () => {
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["serviceSection"],
+    queryFn: async () => {
+      const res = await axios.get(
+        `${import.meta.env.VITE_SERVER_API}/services`
+      );
+      return res.data;
+    },
+  });
+  console.log(data);
+
+  if (isPending) return <Loader></Loader>;
+  if (isError) console.log(error.message);
+
   return (
     <div className="max-w-7xl mx-auto px-4 md:mt-20 my-10">
       <Helmet>
@@ -20,7 +37,9 @@ const BookedServices = () => {
       </div>
 
       <div className="gird grid-cols-1 max-w-5xl mx-auto gap-8">
-        <ServiceCard></ServiceCard>
+        {
+          data.map(data => <ServiceCard key={data._id} data={data}></ServiceCard>)
+        }
       </div>
     </div>
   );
