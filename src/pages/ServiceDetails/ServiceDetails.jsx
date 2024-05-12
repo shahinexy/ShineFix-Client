@@ -20,7 +20,7 @@ const ServiceDetails = () => {
       serviceArea,
       providerEmail,
     } = data;
-
+console.log(data);
   return (
     <div className="my-10 max-w-7xl mx-auto p-4">
       <Helmet>

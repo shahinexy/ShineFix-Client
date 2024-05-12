@@ -10,7 +10,8 @@ import ManageService from "../pages/ManageService/ManageService";
 import BookedServices from "../pages/BookedServices/BookedServices";
 import ServiceToDo from "../pages/ServiceToDo/ServiceToDo";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
-import PrivetRoute from './PrivetRoute';
+import PrivetRoute from "./PrivetRoute";
+import BookedServiceDetails from "../pages/BookedServices/BookedServiceComponents/BookedServiceDetails";
 
 const router = createBrowserRouter([
   {
@@ -28,23 +29,55 @@ const router = createBrowserRouter([
       },
       {
         path: "/addService",
-        element: <PrivetRoute><AddService></AddService></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <AddService></AddService>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/managerService",
-        element: <PrivetRoute><ManageService></ManageService></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <ManageService></ManageService>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/bookedService",
-        element: <PrivetRoute><BookedServices></BookedServices></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <BookedServices></BookedServices>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/serviceToDo",
-        element: <PrivetRoute><ServiceToDo></ServiceToDo></PrivetRoute>,
-      },{
-        path: '/serviceDetails/:id',
-        element: <PrivetRoute><ServiceDetails></ServiceDetails></PrivetRoute>,
-        loader: ({params}) => fetch(`${import.meta.env.VITE_SERVER_API}/services/${params.id}`)
+        element: (
+          <PrivetRoute>
+            <ServiceToDo></ServiceToDo>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/serviceDetails/:id",
+        element: (
+          <PrivetRoute>
+            <ServiceDetails></ServiceDetails>
+          </PrivetRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_SERVER_API}/services/${params.id}`),
+      },
+      {
+        path: "/bookedServiceDetails/:id",
+        element: (
+          <PrivetRoute>
+            <BookedServiceDetails></BookedServiceDetails>
+          </PrivetRoute>
+        ), 
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_SERVER_API}/bookedServices/${params.id}`),
       },
       {
         path: "/register",

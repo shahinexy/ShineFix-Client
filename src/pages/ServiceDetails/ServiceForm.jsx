@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const ServiceForm = ({ data }) => {
   const { user } = useContext(authContext);
-
+  console.log(user.email);
   const {
     _id,
     serviceName,
@@ -15,16 +15,21 @@ const ServiceForm = ({ data }) => {
     servicePrice,
     providerName,
     providerEmail,
+    description,
+    serviceArea, 
+    providerPhoto
   } = data;
+  // console.log(data);
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+    const datas = {...data, description, serviceArea, providerPhoto, status: 'pending'}
 
     axios
-      .post(`${import.meta.env.VITE_SERVER_API}/bookedServices`, data)
+      .post(`${import.meta.env.VITE_SERVER_API}/bookedServices`, datas)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.acknowledged) {
           reset();
           Swal.fire({
@@ -93,7 +98,7 @@ const ServiceForm = ({ data }) => {
           <div className="w-full">
             <p className="font-semibold mb-1">Current User email </p>
             <input
-              {...register("currentUseremail ")}
+              {...register("currentUseremail")}
               className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
               value={user.email}
             />

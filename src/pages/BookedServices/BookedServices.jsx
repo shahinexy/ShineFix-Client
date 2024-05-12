@@ -1,15 +1,19 @@
 import { Helmet } from "react-helmet";
-import ServiceCard from "../Services/ServiceComponents/ServiceCard";
+// import ServiceCard from "../Services/ServiceComponents/ServiceCard";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Loader from "../../components/Loader";
+import BookedCard from "./BookedServiceComponents/BookedCard";
+import { useContext } from "react";
+import { authContext } from "../../AuthProvider/AuthProvider";
 
 const BookedServices = () => {
+  const {user} = useContext(authContext)
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["serviceSection"],
     queryFn: async () => {
       const res = await axios.get(
-        `${import.meta.env.VITE_SERVER_API}/services`
+        `${import.meta.env.VITE_SERVER_API}/bookedServices/email/${user.email}`
       );
       return res.data;
     },
@@ -38,7 +42,7 @@ const BookedServices = () => {
 
       <div className="gird grid-cols-1 max-w-5xl mx-auto gap-8">
         {
-          data.map(data => <ServiceCard key={data._id} data={data}></ServiceCard>)
+          data.map(data => <BookedCard key={data._id} data={data}></BookedCard>)
         }
       </div>
     </div>
