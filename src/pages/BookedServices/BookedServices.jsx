@@ -8,9 +8,9 @@ import { useContext } from "react";
 import { authContext } from "../../AuthProvider/AuthProvider";
 
 const BookedServices = () => {
-  const {user} = useContext(authContext)
+  const { user } = useContext(authContext);
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ["serviceSection"],
+    queryKey: ["bookedServices"],
     queryFn: async () => {
       const res = await axios.get(
         `${import.meta.env.VITE_SERVER_API}/bookedServices/email/${user.email}`
@@ -41,9 +41,9 @@ const BookedServices = () => {
       </div>
 
       <div className="gird grid-cols-1 max-w-5xl mx-auto gap-8">
-        {
-          data.map(data => <BookedCard key={data._id} data={data}></BookedCard>)
-        }
+        {data.map((data) => (
+          <BookedCard key={data._id} data={data}></BookedCard>
+        ))}
       </div>
     </div>
   );
