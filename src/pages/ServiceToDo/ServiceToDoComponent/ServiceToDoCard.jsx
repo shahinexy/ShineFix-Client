@@ -24,23 +24,25 @@ const ServiceToDoCard = ({ data, refetch }) => {
     serviceTakingDate,
   } = data;
 
-
-  const handlestatus = (id, status) =>{
+  const handlestatus = (id, status) => {
     console.log(status);
-    
-    axios.patch(`${import.meta.env.VITE_SERVER_API}/bookedServices/${id}`, {status})
-    .then(res => {
-      console.log(res.data);
-      refetch()
-      Swal.fire({
-        icon: "success",
-        title: "Your work has been saved",
-        showConfirmButton: false,
-        timer: 1500
-      });
-    })
-    .catch(err =>console.log(err))
-  }
+
+    axios
+      .patch(`${import.meta.env.VITE_SERVER_API}/bookedServices/${id}`, {
+        status,
+      })
+      .then((res) => {
+        console.log(res.data);
+        refetch();
+        Swal.fire({
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="flex md:flex-row-reverse flex-col-reverse gap-5 border border-primary dark:border-secondary md:p-8 p-3 shadow-lg shadow-secondary mb-8">
@@ -72,12 +74,26 @@ const ServiceToDoCard = ({ data, refetch }) => {
 
           <Dropdown className="bg-white dark:bg-[#31363F] shadow-lg shadow-secondary rounded-none">
             <DropdownTrigger>
-              <Button  className={`border border-primary dark:border-secondary rounded-none bg-inherit text-base font-medium ${status === 'Pending' && 'text-red-500' } ${status === 'Working' && 'text-orange-500' } ${status === 'Completed' && 'text-green-500' }`}>{status}</Button>
+              <Button
+                className={`text-red-500 border border-primary dark:border-secondary rounded-none bg-inherit text-base font-medium ${
+                  status === "Pending" && "text-red-500"
+                } ${status === "Working" && "text-orange-500"} ${
+                  status === "Completed" && "text-green-500"
+                }`}
+              >
+                {status}
+              </Button>
             </DropdownTrigger>
             <DropdownMenu aria-label="Static Actions">
-              <DropdownItem onClick={() => handlestatus(_id, 'Pending')} >Pending</DropdownItem>
-              <DropdownItem onClick={() => handlestatus(_id, 'Working')} >Working</DropdownItem>
-              <DropdownItem onClick={() => handlestatus(_id, 'Completed')} >Completed</DropdownItem>
+              <DropdownItem onClick={() => handlestatus(_id, "Pending")}>
+                Pending
+              </DropdownItem>
+              <DropdownItem onClick={() => handlestatus(_id, "Working")}>
+                Working
+              </DropdownItem>
+              <DropdownItem onClick={() => handlestatus(_id, "Completed")}>
+                Completed
+              </DropdownItem>
             </DropdownMenu>
           </Dropdown>
         </div>
@@ -91,7 +107,7 @@ const ServiceToDoCard = ({ data, refetch }) => {
 
 ServiceToDoCard.propTypes = {
   data: PropTypes.object,
-  refetch: PropTypes.func
+  refetch: PropTypes.func,
 };
 
 export default ServiceToDoCard;

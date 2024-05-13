@@ -11,7 +11,6 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  Tooltip,
 } from "@nextui-org/react";
 import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
@@ -89,86 +88,88 @@ const NavBar = () => {
           {navItems}
 
           {/* ========== Dropdwon ========= */}
-          <Dropdown>
-            <NavbarItem>
-              <DropdownTrigger>
-                <Button
-                  disableRipple
-                  className="p-0 bg-transparent data-[hover=true]:bg-transparent text-primary dark:text-[#EEF7FF] px-2 text-base font-medium"
-                  radius="sm"
-                  variant="light"
-                >
-                  Dashboard{" "}
-                  <FaAngleDown className="text-primary dark:text-secondary"></FaAngleDown>
-                </Button>
-              </DropdownTrigger>
-            </NavbarItem>
-            <DropdownMenu
-              className="w-[150px]"
-              itemClasses={{
-                base: "gap-4",
-              }}
-            >
-              {/*========= Dropdwon items ========== */}
-              <DropdownItem>
-                <NavLink
-                  to={"/addService"}
-                  className={({ isActive, isPending }) =>
-                    isPending
-                      ? "pending"
-                      : isActive
-                      ? "border-b-2 border-primary dark:border-secondary rounded-none text-primary dark:text-[#EEF7FF] px-2"
-                      : "text-primary dark:text-[#EEF7FF] px-2"
-                  }
-                >
-                  Add Service
-                </NavLink>
-              </DropdownItem>
-              <DropdownItem>
-                <NavLink
-                  to={"/managerService"}
-                  className={({ isActive, isPending }) =>
-                    isPending
-                      ? "pending"
-                      : isActive
-                      ? "border-b-2 border-primary dark:border-secondary rounded-none text-primary dark:text-[#EEF7FF] px-2"
-                      : "text-primary dark:text-[#EEF7FF] px-2"
-                  }
-                >
-                  Manage Service
-                </NavLink>
-              </DropdownItem>
-              <DropdownItem>
-                <NavLink
-                  to={"/bookedService"}
-                  className={({ isActive, isPending }) =>
-                    isPending
-                      ? "pending"
-                      : isActive
-                      ? "border-b-2 border-primary dark:border-secondary rounded-none text-primary dark:text-[#EEF7FF] px-2"
-                      : "text-primary dark:text-[#EEF7FF] px-2"
-                  }
-                >
-                  Booked-Services
-                </NavLink>
-              </DropdownItem>
-              <DropdownItem>
-                <NavLink
-                  to={"/serviceToDo"}
-                  className={({ isActive, isPending }) =>
-                    isPending
-                      ? "pending"
-                      : isActive
-                      ? "border-b-2 border-primary dark:border-secondary rounded-none text-primary dark:text-[#EEF7FF] px-2"
-                      : "text-primary dark:text-[#EEF7FF] px-2"
-                  }
-                >
-                  Service To Do
-                </NavLink>
-              </DropdownItem>
-              {/* ======== End Dropdwon items ====== */}
-            </DropdownMenu>
-          </Dropdown>
+          {user && (
+            <Dropdown>
+              <NavbarItem>
+                <DropdownTrigger>
+                  <Button
+                    disableRipple
+                    className="p-0 bg-transparent data-[hover=true]:bg-transparent text-primary dark:text-[#EEF7FF] px-2 text-base font-medium"
+                    radius="sm"
+                    variant="light"
+                  >
+                    Dashboard{" "}
+                    <FaAngleDown className="text-primary dark:text-secondary"></FaAngleDown>
+                  </Button>
+                </DropdownTrigger>
+              </NavbarItem>
+              <DropdownMenu
+                className="w-[150px]"
+                itemClasses={{
+                  base: "gap-4",
+                }}
+              >
+                {/*========= Dropdwon items ========== */}
+                <DropdownItem>
+                  <NavLink
+                    to={"/addService"}
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "border-b-2 border-primary dark:border-secondary rounded-none text-primary dark:text-[#EEF7FF] px-2"
+                        : "text-primary dark:text-[#EEF7FF] px-2"
+                    }
+                  >
+                    Add Service
+                  </NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <NavLink
+                    to={"/managerService"}
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "border-b-2 border-primary dark:border-secondary rounded-none text-primary dark:text-[#EEF7FF] px-2"
+                        : "text-primary dark:text-[#EEF7FF] px-2"
+                    }
+                  >
+                    Manage Service
+                  </NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <NavLink
+                    to={"/bookedService"}
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "border-b-2 border-primary dark:border-secondary rounded-none text-primary dark:text-[#EEF7FF] px-2"
+                        : "text-primary dark:text-[#EEF7FF] px-2"
+                    }
+                  >
+                    Booked-Services
+                  </NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <NavLink
+                    to={"/serviceToDo"}
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "border-b-2 border-primary dark:border-secondary rounded-none text-primary dark:text-[#EEF7FF] px-2"
+                        : "text-primary dark:text-[#EEF7FF] px-2"
+                    }
+                  >
+                    Service To Do
+                  </NavLink>
+                </DropdownItem>
+                {/* ======== End Dropdwon items ====== */}
+              </DropdownMenu>
+            </Dropdown>
+          )}
         </NavbarContent>
         <NavbarContent justify="end">
           {user ? (
@@ -176,16 +177,16 @@ const NavBar = () => {
               <div>
                 {user?.photoURL ? (
                   <>
-                      <img
-                        className="rounded-full w-10 h-10"
-                        src={user.photoURL}
-                        alt=""
-                      />
+                    <img
+                      className="rounded-full w-10 h-10"
+                      src={user.photoURL}
+                      alt=""
+                    />
                   </>
                 ) : (
                   <TbUserCircle className="text-4xl text-forth"></TbUserCircle>
                   // <Tooltip showArrow={true} content={user?.displayName}>
-                    
+
                   // </Tooltip>
                 )}
               </div>
