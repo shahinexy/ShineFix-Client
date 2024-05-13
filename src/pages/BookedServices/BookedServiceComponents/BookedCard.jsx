@@ -1,23 +1,30 @@
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import { PropTypes } from 'prop-types';
+import { PropTypes } from "prop-types";
 
-
-const BookedCard = ({data}) => {
-    const {
-        _id, 
-        serviceName,
-        servicePhoto,
-        description,
-        servicePrice,
-        providerPhoto,
-        providerName,
-        serviceArea
-      } = data;
+const BookedCard = ({ data }) => {
+  const {
+    _id,
+    serviceName,
+    servicePhoto,
+    description,
+    servicePrice,
+    providerPhoto,
+    providerName,
+    serviceArea,
+    status
+  } = data;
 
   return (
-    <div className="flex md:flex-row flex-col-reverse gap-5 border border-primary dark:border-secondary md:p-8 p-3 shadow-lg shadow-secondary mb-8">
+    <div className="relative flex md:flex-row flex-col-reverse gap-5 border border-primary dark:border-secondary md:p-8 p-3 pd:pt-0 pt-8 shadow-lg shadow-secondary mb-8">
+      <div
+        className={`absolute top-2 w-3 h-3 rounded-full bg-red-500  ${
+          status === "Pending" && "bg-red-500"
+        } ${status === "Working" && "bg-orange-500"} ${
+          status === "Completed" && "bg-green-500"
+        }`}
+      ></div>
       <div className="md:w-4/6 space-y-3">
         <h2 className="text-2xl font-bold text-primary dark:text-secondary">
           {serviceName}
@@ -54,14 +61,14 @@ const BookedCard = ({data}) => {
         </div>
       </div>
       <div className="md:w-2/6">
-        <img src={servicePhoto} alt="" />
+        <img className="w-full" src={servicePhoto} alt="" />
       </div>
     </div>
   );
 };
 
 BookedCard.propTypes = {
-    data: PropTypes.object,
-  };
+  data: PropTypes.object,
+};
 
 export default BookedCard;

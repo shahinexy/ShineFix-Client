@@ -40,6 +40,21 @@ const BookedServices = () => {
         </p>
       </div>
 
+      <div className="max-w-5xl mx-auto flex justify-end md:gap-5 gap-3 my-5">
+          <div className="flex items-center gap-1">
+            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+            <p>Pending</p>
+          </div>
+          <div className="flex items-center gap-1">
+            <div className="w-3 h-3 rounded-full bg-orange-500"></div>
+            <p>Woring</p>
+          </div>
+          <div className="flex items-center gap-1">
+            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <p>Completed</p>
+          </div>
+      </div>
+
       <div className="gird grid-cols-1 max-w-5xl mx-auto gap-8">
         {data.map((data) => (
           <BookedCard key={data._id} data={data}></BookedCard>

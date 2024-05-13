@@ -55,9 +55,9 @@ const ManageServiceCard = ({ data, refetch }) => {
   };
 
   return (
-    <div className="flex md:flex-row flex-col-reverse gap-5 border border-primary dark:border-secondary md:p-8 p-3 shadow-lg shadow-secondary mb-8">
+    <div className="flex md:flex-row flex-col gap-5 border border-primary dark:border-secondary md:p-8 p-3 shadow-lg shadow-secondary mb-8">
       <div className="md:w-2/6">
-        <img src={servicePhoto} alt="" />
+        <img className="w-full" src={servicePhoto} alt="" />
       </div>
 
       <div className="md:w-4/6 space-y-3">

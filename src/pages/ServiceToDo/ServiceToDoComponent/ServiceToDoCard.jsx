@@ -99,7 +99,7 @@ const ServiceToDoCard = ({ data, refetch }) => {
         </div>
       </div>
       <div className="md:w-2/6 flex justify-center">
-        <img src={servicePhoto} alt="" />
+        <img className="w-full" src={servicePhoto} alt="" />
       </div>
     </div>
   );
