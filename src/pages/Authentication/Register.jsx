@@ -27,11 +27,10 @@ const Register = () => {
     createUser(data.email, data.pass)
       .then((res) => {
         toast.success("Register Successfull");
-        navegate("/");
         if (res) {
+          navegate("/");
           updateUser(data.name, data.photo)
-            .then(()=> refetch() )
-            .catch((error) => console.log(error));
+          .then(() => refetch());
         }
       })
       .catch((error) => {

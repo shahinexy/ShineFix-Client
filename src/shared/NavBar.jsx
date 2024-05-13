@@ -176,18 +176,17 @@ const NavBar = () => {
               <div>
                 {user?.photoURL ? (
                   <>
-                    <Tooltip showArrow={true} content={user?.displayName}>
                       <img
                         className="rounded-full w-10 h-10"
                         src={user.photoURL}
                         alt=""
                       />
-                    </Tooltip>
                   </>
                 ) : (
-                  <Tooltip showArrow={true} content={user?.displayName}>
-                    <TbUserCircle className="text-4xl text-forth"></TbUserCircle>
-                  </Tooltip>
+                  <TbUserCircle className="text-4xl text-forth"></TbUserCircle>
+                  // <Tooltip showArrow={true} content={user?.displayName}>
+                    
+                  // </Tooltip>
                 )}
               </div>
               <Button

@@ -105,7 +105,7 @@ const ManageServiceForm = ({data, refetch}) => {
 
 ManageServiceForm.propTypes = {
   data: PropTypes.object,
-  refetch: PropTypes.function,
+  refetch: PropTypes.func,
 };
 
 

@@ -1,8 +1,12 @@
 import { Helmet } from "react-helmet";
 import HeroSection from "./HomComponents/HeroSection";
 import OurServiceSection from "./HomComponents/OurServiceSection";
+import { useContext } from "react";
+import { authContext } from "../../AuthProvider/AuthProvider";
 
 const Home = () => {
+  const {user} = useContext(authContext)
+  // console.log(user);
   return (
     <div>
       <Helmet>

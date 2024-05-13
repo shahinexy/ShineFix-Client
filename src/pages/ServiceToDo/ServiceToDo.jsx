@@ -8,7 +8,7 @@ import Loader from "../../components/Loader";
 
 const ServiceToDo = () => {
   const { user } = useContext(authContext);
-  const { data, isPending, isError, error } = useQuery({
+  const { data, isPending, isError, error, refetch } = useQuery({
     queryKey: ["serviceToDo"],
     queryFn: async () => {
       const res = await axios.get(
@@ -31,7 +31,7 @@ const ServiceToDo = () => {
       </Helmet>
       <div className="md:w-4/6 my-10">
         <h1 className="md:text-4xl text-3xl font-bold text-primary dark:text-secondary uppercase mb-4">
-          Thsi is a title for all services
+          Thsi is a title for services to do
         </h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
@@ -42,7 +42,8 @@ const ServiceToDo = () => {
       </div>
       <div className="gird grid-cols-1 max-w-5xl mx-auto gap-8">
         {
-          data.map(data => <ServiceToDoCard key={data._id} data={data}></ServiceToDoCard>)
+          data.length > 0 ? data.map(data => <ServiceToDoCard key={data._id} data={data} refetch={refetch}></ServiceToDoCard>)
+            :  <div className="text-3xl text-center ">You Don't Have Any Service To Do...</div>
         }
         
       </div>
