@@ -47,7 +47,7 @@ const BookedServices = () => {
           </div>
           <div className="flex items-center gap-1">
             <div className="w-3 h-3 rounded-full bg-orange-500"></div>
-            <p>Woring</p>
+            <p>Working</p>
           </div>
           <div className="flex items-center gap-1">
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
