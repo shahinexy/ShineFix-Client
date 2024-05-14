@@ -18,7 +18,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const ManageServiceCard = ({ data, refetch }) => {
-  const { _id, serviceName, servicePhoto, description, serviceArea } = data;
+  const { _id, serviceName, servicePhoto, description, serviceArea, servicePrice } = data;
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -67,7 +67,7 @@ const ManageServiceCard = ({ data, refetch }) => {
         <p>{description.slice(0, 100)}...</p>
 
         <div className="flex justify-between flex-wrap gap-1 items-center">
-          <p className="font-medium">Price: 231$</p>
+          <p className="font-medium">Price: {servicePrice}$</p>
           <p className="font-medium flex items-center gap-2">
             <HiLocationMarker className="text-primary text-xl dark:text-secondary" />
             {serviceArea}

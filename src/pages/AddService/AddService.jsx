@@ -15,20 +15,12 @@ const AddService = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
-    console.log({
-      ...data,
-      providerEmail: user.email,
-      providerPhoto: user.photoURL,
-      providerName: user.displayName,
-      status: "pending",
-    });
 
     const serviseData = {
       ...data,
       providerEmail: user.email,
       providerPhoto: user.photoURL,
       providerName: user.displayName,
-      // status: "pending",
     };
 
     axios
