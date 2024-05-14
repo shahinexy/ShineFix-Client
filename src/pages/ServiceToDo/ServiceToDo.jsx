@@ -31,13 +31,10 @@ const ServiceToDo = () => {
       </Helmet>
       <div className="md:w-4/6 my-10">
         <h1 className="md:text-4xl text-3xl font-bold text-primary dark:text-secondary uppercase mb-4">
-          Thsi is a title for services to do
+          Your services to-do
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-          numquam deserunt perferendis sequi illum similique totam. Earum
-          repellat assumenda, voluptas nobis exercitationem inventore ducimus
-          neque beatae quas rerum, distinctio cum.
+        Stay organized and efficient with our Services To-Do page. Easily manage your upcoming tasks, prioritize assignments, and track progress all in one place. Simplify your workflow and ensure nothing falls through the cracks with Fix It Right.
         </p>
       </div>
       <div className="gird grid-cols-1 max-w-5xl mx-auto gap-8">

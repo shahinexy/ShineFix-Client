@@ -55,13 +55,10 @@ const AddService = () => {
       </Helmet>
       <div className="md:w-4/6 my-10">
         <h1 className="md:text-4xl text-3xl font-bold text-primary dark:text-secondary uppercase mb-4">
-          Thsi is a title for add services
+        Add Your Services Today
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-          numquam deserunt perferendis sequi illum similique totam. Earum
-          repellat assumenda, voluptas nobis exercitationem inventore ducimus
-          neque beatae quas rerum, distinctio cum.
+        Join our platform and showcase your expertise to a wider audience. Increase your visibility and connect with clients seeking your specific services. With easy registration and seamless integration, expanding your service offerings has never been simpler. Join ShineFix and grow your business today.
         </p>
       </div>
       <div className="md:grid grid-cols-2 gap-5 space-y-4 mb-10 md:mb-20 mt-5">
@@ -69,7 +66,7 @@ const AddService = () => {
         <div>
           <div className=" p-8 bg-white/60 dark:bg-white/40 shadow-lg shadow-secondary dark:shadow-white border border-white  mx-auto ">
             <h1 className="text-3xl text-primary dark:text-secondary font-bold text-center mb-8">
-              Add Your Item Now
+              Add Your service Now
             </h1>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

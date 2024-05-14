@@ -9,13 +9,10 @@ const HeroSection = () => {
       <div>
         <div className="lg:w-5/6 mx-auto">
           <h1 className="text-primary dark:text-secondary md:text-6xl text-4xl font-bold uppercase md:mb-5 mb-2">
-            This is a hero section hearder
+          Your Trusted Home Repair Service
           </h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
-            cupiditate ducimus dignissimos voluptatum cum laudantium sapiente
-            alias expedita, ipsam, illo quis accusamus tenetur similique nobis
-            facere odio libero labore dicta?
+          Welcome to ShineFix, where your home repair needs are our top priority. Our expert team is dedicated to providing reliable and efficient service, ensuring your home is in excellent condition. From plumbing and electrical repairs to carpentry and painting, we've got you covered. Trust us to deliver quality craftsmanship and personalized solutions tailored to your specific needs. Don't let home repairs stress you out – let Fix It Right handle it with professionalism and care.
           </p>
           <p className="md:my-6 my-3 inline-block text-start md:text-2xl text-xl font-semibold text-primary hover:text-secondary dark:text-secondary dark:hover:text-primary">
             <Link
@@ -32,7 +29,7 @@ const HeroSection = () => {
         <div>
           <img className="w-full h-full" src={benner} alt="" />
         </div>
-        <div className="absolute inset-0 top-1/3">
+        <div className="absolute inset-0 sm:top-1/3 top-0">
           <Slider></Slider>
         </div>
       </div>

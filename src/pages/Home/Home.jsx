@@ -5,12 +5,8 @@ import OurPartnerSection from "./HomComponents/OurPartnerSection";
 import OurServicesSection from "./HomComponents/OurServicesSection";
 import OurCllientReviewSection from "./HomComponents/OurCllientReviewSection";
 import OurSuccessSection from "./HomComponents/OurSuccessSection";
-import { useContext } from "react";
-import { authContext } from "../../AuthProvider/AuthProvider";
 
 const Home = () => {
-  const {user} = useContext(authContext)
-  console.log(user);
   return (
     <div>
       <Helmet>

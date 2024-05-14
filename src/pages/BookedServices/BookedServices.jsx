@@ -30,13 +30,10 @@ const BookedServices = () => {
       </Helmet>
       <div className="md:w-4/6 my-10">
         <h1 className="md:text-4xl text-3xl font-bold text-primary dark:text-secondary uppercase mb-4">
-          Thsi is a title for Your Booked services
+           Your Booked services
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-          numquam deserunt perferendis sequi illum similique totam. Earum
-          repellat assumenda, voluptas nobis exercitationem inventore ducimus
-          neque beatae quas rerum, distinctio cum.
+        Streamline your bookings and appointments effortlessly. Our user-friendly platform allows you to manage scheduled services with ease, from confirming appointments to rescheduling as needed. Experience the convenience of organized bookings and ensure smooth service delivery every time with ShineFix.
         </p>
       </div>
 

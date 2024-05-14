@@ -21,8 +21,8 @@ const Footer = () => {
               ABOUT
             </h2>
             <p className="font-semibold">
-              Welcome to ShinArt where we celebrate the artistry of handmade
-              treasures. Explore our curated collection.
+            Your Renovation Experts, Always. Crafting Dreams into Reality. Transforming Spaces, One Project at a Time.
+Expert Renovation Services Tailored to You.
             </p>
           </div>
           <div className="flex gap-5 md:justify-around flex-wrap">

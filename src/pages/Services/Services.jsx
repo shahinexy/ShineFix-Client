@@ -38,13 +38,10 @@ const Services = () => {
       </Helmet>
       <div className="md:w-4/6 my-10">
         <h1 className="md:text-4xl text-3xl font-bold text-primary dark:text-secondary uppercase mb-4">
-          Thsi is a title for all services
+        Your One-Stop Solution for Home Excellence
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-          numquam deserunt perferendis sequi illum similique totam. Earum
-          repellat assumenda, voluptas nobis exercitationem inventore ducimus
-          neque beatae quas rerum, distinctio cum.
+        Discover a comprehensive range of expert services tailored to elevate your home. From renovations to repairs, plumbing to painting, trust our skilled team to deliver exceptional results with professionalism and care. Experience the convenience of finding all your home improvement needs under one roof with ShineFix.
         </p>
       </div>
 
@@ -84,7 +81,7 @@ const Services = () => {
                     <p>{data.providerName}</p>
                     <p>price: {data.servicePrice}$</p>
                     <Link to={`/serviceDetails/${data._id}`} className="flex items-center justify-center duration-500 hover:scale-110 hover:-rotate-2">
-                      Details &nbsp; &nbsp;----
+                      Details &nbsp; ----
                       <FaAngleDoubleRight className="text-2xl mt-[2px]"></FaAngleDoubleRight>
                     </Link>
                   </div>

@@ -30,13 +30,10 @@ const ManageService = () => {
       </Helmet>
       <div className="md:w-4/6 my-10">
         <h1 className="md:text-4xl text-3xl font-bold text-primary dark:text-secondary uppercase mb-4">
-          Thsi is a title for Manage services
+        Manage with Ease
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-          numquam deserunt perferendis sequi illum similique totam. Earum
-          repellat assumenda, voluptas nobis exercitationem inventore ducimus
-          neque beatae quas rerum, distinctio cum.
+        Efficiently update and organize your service details in one convenient location. Our intuitive platform allows you to easily add, edit, or remove services as needed. Stay in control of your offerings and ensure accurate information for your clients. Simplify your service management with ShineFix.
         </p>
       </div>
 

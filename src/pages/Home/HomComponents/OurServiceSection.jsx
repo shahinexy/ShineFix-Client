@@ -15,7 +15,6 @@ const OurServiceSection = () => {
       return res.data;
     },
   });
-  console.log(data);
 
   if (isPending) return <Loader></Loader>;
   if (isError) console.log(error.message);
@@ -24,13 +23,10 @@ const OurServiceSection = () => {
     <div>
       <div className="md:w-4/6 my-10">
         <h1 className="md:text-4xl text-3xl font-bold text-primary dark:text-secondary uppercase mb-4">
-          Our popular servicese
+        Top Picks: Our Popular Services
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-          numquam deserunt perferendis sequi illum similique totam. Earum
-          repellat assumenda, voluptas nobis exercitationem inventore ducimus
-          neque beatae quas rerum, distinctio cum.
+        Explore our top-rated services tailored to meet your home repair needs. From routine maintenance to emergency fixes, our skilled technicians deliver exceptional results every time. Discover why these services are favorites among our satisfied customers and experience the difference with Fix It Right today.
         </p>
       </div>
 
