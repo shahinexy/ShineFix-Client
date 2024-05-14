@@ -43,7 +43,7 @@ const ServiceToDo = () => {
       <div className="gird grid-cols-1 max-w-5xl mx-auto gap-8">
         {
           data.length > 0 ? data.map(data => <ServiceToDoCard key={data._id} data={data} refetch={refetch}></ServiceToDoCard>)
-            :  <div className="text-3xl text-center ">You Don't Have Any Service To Do...</div>
+            :  <div className="text-3xl text-center ">You don't have any service to do...</div>
         }
         
       </div>

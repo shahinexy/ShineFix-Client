@@ -42,7 +42,8 @@ const ManageService = () => {
 
       <div className="gird grid-cols-1 max-w-5xl mx-auto gap-8">
         {
-          data.map(data => <ManageServiceCard key={data._id} data={data} refetch={refetch}></ManageServiceCard>)
+         data.length > 0 ? data.map(data => <ManageServiceCard key={data._id} data={data} refetch={refetch}></ManageServiceCard>) 
+         : <h2 className="text-3xl text-center ">You don't have any services...</h2>        
         }
       </div>
     </div>

@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const ServiceForm = ({ data }) => {
   const { user } = useContext(authContext);
-  console.log(user.email);
+  // console.log(user.email);
   const {
     _id,
     serviceName,
@@ -19,18 +19,35 @@ const ServiceForm = ({ data }) => {
     serviceArea, 
     providerPhoto
   } = data;
-  // console.log(data);
 
   const { register, handleSubmit, reset } = useForm();
+
   const onSubmit = (data) => {
     console.log(data);
-    const datas = {...data, description, serviceArea, providerPhoto, status: 'pending'}
+    // if(providerEmail === user.email){
+    //     return  Swal.fire({
+    //       title: "Oops...",
+    //       text: "Provider can't book her won service",
+    //       icon: "error"
+    //     });
+    // }
+
+    if(providerEmail !== data.providerEmail){
+      return  Swal.fire({
+        title: "Carefull...",
+        text: "Don't use auto input filler, It will change the current input value",
+        icon: "error"
+      });
+    }
+
+    const datas = {...data, description, serviceArea, providerPhoto, status: 'Pending'}
 
     axios
       .post(`${import.meta.env.VITE_SERVER_API}/bookedServices`, datas)
       .then((res) => {
         // console.log(res.data);
         if (res.data.acknowledged) {
+          console.log(res.data);
           reset();
           Swal.fire({
             icon: "success",

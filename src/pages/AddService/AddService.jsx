@@ -28,7 +28,7 @@ const AddService = () => {
       providerEmail: user.email,
       providerPhoto: user.photoURL,
       providerName: user.displayName,
-      status: "pending",
+      // status: "pending",
     };
 
     axios

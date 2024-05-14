@@ -18,6 +18,7 @@ import { authContext } from "../AuthProvider/AuthProvider";
 import logo from "../assets/images/icons8-home-repair-64.png";
 import { FaAngleDown } from "react-icons/fa";
 import { TbUserCircle } from "react-icons/tb";
+import { Tooltip } from "react-tooltip";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -177,22 +178,71 @@ const NavBar = () => {
               <div>
                 {user?.photoURL ? (
                   <>
-                    <img
-                      className="rounded-full w-10 h-10"
-                      src={user.photoURL}
-                      alt=""
-                    />
+                    <a id="clickable">
+                      <img
+                        className="rounded-full w-10 h-10"
+                        src={user.photoURL}
+                        alt=""
+                      />
+                    </a>
+                    <Tooltip
+                      anchorSelect="#clickable"
+                      clickable
+                      className="z-20 shadow-lg shadow-secondary"
+                      style={{ backgroundColor: "#ffffff", color: "#4D869C" }}
+                    >
+                      <div className=" w-full h-full flex flex-col gap-2 items-center justify-center md:px-10 px-5">
+                        <img
+                          className="rounded-full w-10 h-10"
+                          src={user.photoURL}
+                          alt=""
+                        />
+                        <p className="text-base font-medium">
+                          {user.displayName}
+                        </p>
+                        <p className="font-medium">Email: {user.email}</p>
+
+                        <Button
+                          onClick={logoutUser}
+                          className="rounded-none bg-primary dark:bg-secondary text-base text-white font-medium"
+                        >
+                          Logout
+                        </Button>
+                      </div>
+                    </Tooltip>
                   </>
                 ) : (
-                  <TbUserCircle className="text-4xl text-forth"></TbUserCircle>
-                  // <Tooltip showArrow={true} content={user?.displayName}>
+                  <>
+                    <a id="clickable">
+                      <TbUserCircle className="text-4xl text-forth"></TbUserCircle>
+                    </a>
+                    <Tooltip
+                      anchorSelect="#clickable"
+                      clickable
+                      className="z-20 shadow-lg shadow-secondary"
+                      style={{ backgroundColor: "#ffffff", color: "#4D869C" }}
+                    >
+                      <div className=" w-full h-full flex flex-col gap-2 items-center justify-center md:px-10 px-5">
+                        <TbUserCircle className="text-4xl text-forth"></TbUserCircle>
+                        <p className="text-base font-medium">
+                          {user.displayName}
+                        </p>
+                        <p className="font-medium">Email: {user.email}</p>
 
-                  // </Tooltip>
+                        <Button
+                          onClick={logoutUser}
+                          className="rounded-none bg-primary dark:bg-secondary text-base text-white font-medium"
+                        >
+                          Logout
+                        </Button>
+                      </div>
+                    </Tooltip>
+                  </>
                 )}
               </div>
               <Button
                 onClick={logoutUser}
-                className="rounded-none bg-primary dark:bg-secondary text-base text-white font-medium"
+                className="sm:flex hidden rounded-none bg-primary dark:bg-secondary text-base text-white font-medium"
               >
                 Logout
               </Button>
@@ -291,6 +341,21 @@ const NavBar = () => {
               {/* ======== End Dropdwon items ====== */}
             </DropdownMenu>
           </Dropdown>
+
+          {user ? (
+            <Button
+              onClick={logoutUser}
+              className="rounded-none bg-primary dark:bg-secondary text-base text-white font-medium"
+            >
+              Logout
+            </Button>
+          ) : (
+            <Link to={"/login"}>
+              <Button className="rounded-none w-full bg-primary dark:bg-secondary text-base text-white font-medium">
+                Login
+              </Button>
+            </Link>
+          )}
         </NavbarMenu>
       </Navbar>
     </div>

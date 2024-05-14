@@ -19,7 +19,7 @@ const BookedCard = ({ data }) => {
   return (
     <div className="relative flex md:flex-row flex-col-reverse gap-5 border border-primary dark:border-secondary md:p-8 p-3 pd:pt-0 pt-8 shadow-lg shadow-secondary mb-8">
       <div
-        className={`absolute top-2 w-3 h-3 rounded-full bg-red-500  ${
+        className={`absolute top-2 w-3 h-3 rounded-full  ${
           status === "Pending" && "bg-red-500"
         } ${status === "Working" && "bg-orange-500"} ${
           status === "Completed" && "bg-green-500"

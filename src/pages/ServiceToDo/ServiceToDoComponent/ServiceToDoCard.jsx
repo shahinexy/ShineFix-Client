@@ -75,7 +75,7 @@ const ServiceToDoCard = ({ data, refetch }) => {
           <Dropdown className="bg-white dark:bg-[#31363F] shadow-lg shadow-secondary rounded-none">
             <DropdownTrigger>
               <Button
-                className={`text-red-500 border border-primary dark:border-secondary rounded-none bg-inherit text-base font-medium ${
+                className={`border border-primary dark:border-secondary rounded-none bg-inherit text-base font-medium ${
                   status === "Pending" && "text-red-500"
                 } ${status === "Working" && "text-orange-500"} ${
                   status === "Completed" && "text-green-500"

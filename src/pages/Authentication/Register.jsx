@@ -27,7 +27,7 @@ const Register = () => {
     createUser(data.email, data.pass)
       .then((res) => {
         toast.success("Register Successfull");
-        if (res) {
+        if (res.user) {
           navegate("/");
           updateUser(data.name, data.photo)
           .then(() => refetch());

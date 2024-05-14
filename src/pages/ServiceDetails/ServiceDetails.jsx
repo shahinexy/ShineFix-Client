@@ -28,7 +28,7 @@ const ServiceDetails = () => {
     serviceArea,
     providerEmail,
   } = data;
-  console.log(data);
+
   return (
     <div className="my-10 max-w-7xl mx-auto p-4">
       <Helmet>
@@ -36,7 +36,7 @@ const ServiceDetails = () => {
       </Helmet>
       <div
         style={{ backgroundImage: `url(${img})` }}
-        className="w-full h-56 bg-center bg-cover mb-5"
+        className="w-full h-56 bg-bottom bg-cover mb-5 bg-fixed"
       >
         <div className="flex w-full h-full bg-primary/40 justify-center items-center">
           <h1 className="text-3xl font-medium text-white">
@@ -74,7 +74,7 @@ const ServiceDetails = () => {
             Provider Information:
           </h2>
           <div className="flex gap-5 pt-3">
-            <img className="w-44 h-32" src={providerPhoto} alt="" />
+            <img className="w-48 h-28" src={providerPhoto} alt="" />
             <div className="font-medium">
               <p>Name: {providerName}</p>
               <p>Email: {providerEmail}</p>
