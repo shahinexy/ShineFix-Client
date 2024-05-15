@@ -36,9 +36,6 @@ const Services = () => {
     setSearch(searchData);
   }, [data]);
 
-  console.log(asc);
-  console.log(searchFilter.toLowerCase());
-
   if (isPending) return <Loader></Loader>;
   if (isError) console.log(error.message);
 

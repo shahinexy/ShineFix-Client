@@ -69,6 +69,7 @@ const AddService = () => {
                   className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
                   type="text"
                   placeholder="url"
+                  required
                 />
               </div>
               <div>
@@ -78,6 +79,7 @@ const AddService = () => {
                   className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
                   type="text"
                   placeholder="name"
+                  required
                 />
               </div>
               <div className="flex md:gap-5 gap-3 flex-wrap">
@@ -88,6 +90,7 @@ const AddService = () => {
                     className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
                     type="number"
                     placeholder="price"
+                    required
                   />
                 </div>
                 <div className="w-full">
@@ -97,6 +100,7 @@ const AddService = () => {
                     className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
                     type="text"
                     placeholder="area"
+                    required
                   />
                 </div>
                 <div className="w-full">
@@ -105,6 +109,7 @@ const AddService = () => {
                     {...register("description")}
                     className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
                     placeholder="description"
+                    required
                   ></textarea>
                 </div>
               </div>

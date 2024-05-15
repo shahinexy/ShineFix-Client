@@ -16,6 +16,7 @@ const BookedServiceDetails = () => {
         providerName,
         serviceArea,
         providerEmail,
+        status,
       } = data;
 
     return (
@@ -74,6 +75,14 @@ const BookedServiceDetails = () => {
             <img className="shadow-2xl shadow-secondary w-full" src={servicePhoto} alt="" />
           </div>
         </div> 
+
+        <div className="flex justify-center mt-20">
+          <h1 className={` text-4xl border-b-4 border-primary dark:border-secondary pb-3 font-medium ${
+                  status === "Pending" && "text-red-500"
+                } ${status === "Working" && "text-orange-500"} ${
+                  status === "Completed" && "text-green-500"
+                }`}>{status}</h1>
+        </div>
       </div>
     );
 };
