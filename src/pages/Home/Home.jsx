@@ -13,7 +13,7 @@ const Home = () => {
         <title>ShineFix | Home</title>
       </Helmet>
       <HeroSection></HeroSection>
-      <div className="max-w-6xl mx-auto px-4 md:my-12 my-7">
+      <div className="max-w-7xl mx-auto px-4 md:my-12 my-7">
         <OurServiceSection></OurServiceSection>
       </div>
       <OurPartnerSection></OurPartnerSection>

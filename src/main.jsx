@@ -7,6 +7,11 @@ import router from "./router/router.jsx";
 import { Toaster } from "react-hot-toast";
 import AuthProvider from "./AuthProvider/AuthProvider.jsx";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();

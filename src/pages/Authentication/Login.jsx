@@ -58,7 +58,7 @@ const Login = () => {
         <title>Login</title>
       </Helmet>
       <div>
-        <img src={loginImg} alt="" />
+       <img src={loginImg} alt="" />
       </div>
 
       <div className=" md:w-2/3 text-forth p-8 bg-white/60 dark:bg-white/40 shadow-lg shadow-secondary dark:shadow-white border border-white  mx-auto ">

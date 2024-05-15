@@ -45,7 +45,12 @@ const ServiceToDoCard = ({ data, refetch }) => {
   };
 
   return (
-    <div className="flex md:flex-row-reverse flex-col-reverse gap-5 border border-primary dark:border-secondary md:p-8 p-3 shadow-lg shadow-secondary mb-8">
+    <div
+      data-aos-anchor-placement="bottom-bottom"
+      data-aos="zoom-in-up"
+      data-aos-duration="1000"
+      className="flex md:flex-row-reverse flex-col-reverse gap-5 border border-primary dark:border-secondary md:p-8 p-3 shadow-lg shadow-secondary mb-8"
+    >
       <div className="md:w-4/6 space-y-3">
         <h2 className="text-2xl font-bold text-primary dark:text-secondary">
           {serviceName}

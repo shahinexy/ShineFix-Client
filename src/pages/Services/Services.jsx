@@ -3,21 +3,23 @@ import ServiceCard from "./ServiceComponents/ServiceCard";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Loader from "../../components/Loader";
-import { FaAngleDoubleRight, FaSearch } from "react-icons/fa";
+import { FaAngleDoubleRight, FaAngleDown, FaSearch } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GiTireIronCross } from "react-icons/gi";
+import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 
 const Services = () => {
   const [isVisible, setIsVisisble] = useState(false);
   const [search, setSearch] = useState([]);
   const [searchFilter, setSearchFilter] = useState("");
+  const [asc, setAsc] = useState('non')
 
-  const { data, isPending, isError, error } = useQuery({
-    queryKey: ["serviceSection"],
+  const { data, isPending, isError, error, refetch } = useQuery({
+    queryKey: ["serviceSection", asc],
     queryFn: async () => {
       const res = await axios.get(
-        `${import.meta.env.VITE_SERVER_API}/services`
+        `${import.meta.env.VITE_SERVER_API}/services?sort=${asc}`
       );
       return res.data;
     },
@@ -27,6 +29,8 @@ const Services = () => {
     const searchData = data;
     setSearch(searchData);
   }, [data]);
+
+  console.log(asc);
 
   if (isPending) return <Loader></Loader>;
   if (isError) console.log(error.message);
@@ -45,7 +49,31 @@ const Services = () => {
         </p>
       </div>
 
-      <div className="relative max-w-5xl mx-auto flex flex-col items-end gap-3 my-10">
+      <div className="relative max-w-5xl mx-auto flex justify-between gap-3 md:my-10 my-5">
+        <div>
+          
+        <Dropdown className="bg-white dark:bg-[#31363F] shadow-lg shadow-secondary rounded-none">
+            <DropdownTrigger>
+              <Button
+                className={`bg-primary dark:bg-secondary border border-primary dark:border-secondary rounded-none text-lg text-white`}
+              >
+                Sort by price <FaAngleDown/>
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Static Actions">
+              <DropdownItem onClick={() => setAsc('asc')}>
+                Low to high
+              </DropdownItem>
+              <DropdownItem onClick={() => setAsc('dsc') }>
+                High to low
+              </DropdownItem>
+              <DropdownItem onClick={() => setAsc('non')}>
+                Default
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </div>
+
         <div className="flex gap-3 items-center bg-white dark:bg-white/40 px-5 shadow-md shadow-secondary">
           <input
             onChange={(e) => setSearchFilter(e.target.value)}
@@ -59,7 +87,7 @@ const Services = () => {
         </div>
 
         {isVisible && (
-          <div className="absolute top-14 z-20 max-w-3xl bg-[#eef7ff] dark:bg-primary shadow-lg shadow-secondary px-5 py-2 border border-primary dark:border-secondary">
+          <div className="absolute top-14 right-0 z-20 sm:w-[500px] w-full bg-[#eef7ff] dark:bg-primary shadow-lg shadow-secondary px-5 py-2 border border-primary dark:border-secondary">
             <div className="flex justify-end">
               <button onClick={() =>setIsVisisble(false)}>
               <GiTireIronCross className="text-primary dark:text-white text-4xl font-bold border-2 border-primary dark:border-white rounded-full p-2" />

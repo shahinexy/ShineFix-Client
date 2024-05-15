@@ -13,11 +13,16 @@ const BookedCard = ({ data }) => {
     providerPhoto,
     providerName,
     serviceArea,
-    status
+    status,
   } = data;
 
   return (
-    <div className="relative flex md:flex-row flex-col-reverse gap-5 border border-primary dark:border-secondary md:p-8 p-3 pd:pt-0 pt-8 shadow-lg shadow-secondary mb-8">
+    <div
+      data-aos-anchor-placement="bottom-bottom"
+      data-aos="zoom-in-up"
+      data-aos-duration="1000"
+      className="relative flex md:flex-row flex-col-reverse gap-5 border border-primary dark:border-secondary md:p-8 p-3 pd:pt-0 pt-8 shadow-lg shadow-secondary mb-8"
+    >
       <div
         className={`absolute top-2 w-3 h-3 rounded-full  ${
           status === "Pending" && "bg-red-500"

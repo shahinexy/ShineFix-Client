@@ -55,7 +55,11 @@ const ManageServiceCard = ({ data, refetch }) => {
   };
 
   return (
-    <div className="flex md:flex-row flex-col gap-5 border border-primary dark:border-secondary md:p-8 p-3 shadow-lg shadow-secondary mb-8">
+    <div
+    data-aos-anchor-placement="bottom-bottom"
+      data-aos="zoom-in-up"
+      data-aos-duration="1000"
+    className="flex md:flex-row flex-col gap-5 border border-primary dark:border-secondary md:p-8 p-3 shadow-lg shadow-secondary mb-8">
       <div className="md:w-2/6">
         <img className="w-full" src={servicePhoto} alt="" />
       </div>
