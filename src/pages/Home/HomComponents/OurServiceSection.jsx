@@ -7,7 +7,7 @@ import Loader from "../../../components/Loader";
 
 const OurServiceSection = () => {
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ["serviceSection"],
+    queryKey: ["homeServiceSection"],
     queryFn: async () => {
       const res = await axios.get(
         `${import.meta.env.VITE_SERVER_API}/services`

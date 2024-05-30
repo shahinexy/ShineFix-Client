@@ -9,7 +9,7 @@ import icon6 from "../../../assets/images/icon-06-101x100.png";
 const OurServicesSection = () => {
   return (
     <div>
-      <div className="md:w-4/6 my-10">
+      <div className="md:w-4/6 my-16">
         <h1
           data-aos="zoom-out-right"
           className="md:text-4xl text-3xl font-bold text-primary dark:text-secondary uppercase mb-4"

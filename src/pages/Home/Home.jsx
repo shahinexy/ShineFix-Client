@@ -13,17 +13,17 @@ const Home = () => {
         <title>ShineFix | Home</title>
       </Helmet>
       <HeroSection></HeroSection>
-      <div className="max-w-7xl mx-auto px-4 md:my-12 my-7">
+      <div className="max-w-7xl mx-auto px-4 md:my-28 my-20">
         <OurServiceSection></OurServiceSection>
       </div>
       <OurPartnerSection></OurPartnerSection>
-      <div className="max-w-7xl mx-auto px-4 md:my-12 my-7">
+      <div className="max-w-7xl mx-auto px-4 md:my-28 my-20">
         <OurServicesSection></OurServicesSection>
       </div>
-      <div className="max-w-7xl mx-auto px-4 md:my-20 my-7">
+      <div className="max-w-7xl mx-auto px-4 md:my-28 my-20">
         <OurCllientReviewSection></OurCllientReviewSection>
       </div>
-      <div className="max-w-7xl mx-auto px-4 md:my-24 my-7">
+      <div className="max-w-7xl mx-auto px-4 md:my-28 my-20">
         <OurSuccessSection></OurSuccessSection>
       </div>
     </div>

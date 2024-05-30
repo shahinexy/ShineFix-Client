@@ -44,7 +44,7 @@ const Services = () => {
       <Helmet>
         <title>Services</title>
       </Helmet>
-      <div className="md:w-4/6 my-10">
+      <div className="md:w-4/6 sm:my-20 my-12">
         <h1 className="md:text-4xl text-3xl font-bold text-primary dark:text-secondary uppercase mb-4">
           Your One-Stop Solution for Home Excellence
         </h1>
@@ -57,7 +57,7 @@ const Services = () => {
         </p>
       </div>
 
-      <div className="relative max-w-5xl mx-auto flex justify-between flex-wrap-reverse gap-3 md:my-10 my-5">
+      <div className="relative max-w-5xl mx-auto flex justify-between flex-wrap-reverse gap-3 md:my-12 my-6">
         <div>
           <Dropdown className="bg-white dark:bg-[#31363F] shadow-lg shadow-secondary rounded-none">
             <DropdownTrigger>
@@ -101,7 +101,9 @@ const Services = () => {
               .filter((item) => {
                 return searchFilter.toLowerCase() === ""
                   ? item
-                  : item.serviceName.toLowerCase().includes(searchFilter.toLowerCase());
+                  : item.serviceName
+                      .toLowerCase()
+                      .includes(searchFilter.toLowerCase());
               })
               .slice(0, 3)
               .map((data) => (

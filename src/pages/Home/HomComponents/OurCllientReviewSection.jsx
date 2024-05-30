@@ -18,7 +18,7 @@ const OurCllientReviewSection = () => {
         What our client say...
       </h1>
 
-      <div className='my-10'>
+      <div className='my-20'>
       <Swiper
         centeredSlides={true}
         autoplay={{

@@ -15,6 +15,7 @@ const OurSuccessSection = () => {
               duration: 2,
               repeat: Infinity,
               repeatDelay: 0,
+              delay: 0
             }}
           >
             <FaRegThumbsUp className="text-7xl text-primary dark:text-secondary" />
@@ -35,6 +36,7 @@ const OurSuccessSection = () => {
               duration: 2,
               repeat: Infinity,
               repeatDelay: 0,
+              delay: 0.7
             }}
           >
             <FaRegCalendarAlt className="text-7xl text-primary dark:text-secondary" />
@@ -56,6 +58,7 @@ const OurSuccessSection = () => {
               duration: 2,
               repeat: Infinity,
               repeatDelay: 0,
+              delay: 0
             }}
           >
           <FaRegUser className="text-7xl text-primary dark:text-secondary" />
@@ -76,6 +79,7 @@ const OurSuccessSection = () => {
               duration: 2,
               repeat: Infinity,
               repeatDelay: 0,
+              delay: 0.7
             }}
           >
           <MdOutlineCloudDone className="text-7xl text-primary dark:text-secondary" />

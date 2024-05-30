@@ -43,7 +43,7 @@ const ServiceToDo = () => {
       <Helmet>
         <title>Service To Do</title>
       </Helmet>
-      <div className="md:w-4/6 my-10">
+      <div className="md:w-4/6 sm:my-20 my-12">
         <h1 className="md:text-4xl text-3xl font-bold text-primary dark:text-secondary uppercase mb-4">
           Your services to-do
         </h1>
