@@ -15,29 +15,76 @@ const AddService = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
-
-    const serviseData = {
-      ...data,
-      providerEmail: user.email,
-      providerPhoto: user.photoURL,
-      providerName: user.displayName,
-    };
+    
+    const photoFile = { image: data.servicePhoto[0] };
+    console.log(photoFile);
 
     axios
-      .post(`${import.meta.env.VITE_SERVER_API}/services`, serviseData)
+      .post(
+        `https://api.imgbb.com/1/upload?key=${
+          import.meta.env.VITE_IMAGEBB_API_KEY
+        }`,
+        photoFile,
+        {
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        }
+      )
       .then((res) => {
-        console.log(res.data)
-        if(res.data.acknowledged){
-          reset()
-          Swal.fire({
-            icon: "success",
-            title: "Service Added Successfully ",
-            showConfirmButton: false,
-            timer: 1500
-          });
+        console.log(res.data);
+        if (res.data.success) {
+          console.log(res.data.data.display_url);
+
+          const serviseData = {
+            ...data,
+            providerEmail: user.email,
+            providerPhoto: user.photoURL,
+            providerName: user.displayName,
+            servicePhoto: res.data.data.display_url,
+          };
+
+          axios
+            .post(`${import.meta.env.VITE_SERVER_API}/services`, serviseData)
+            .then((res) => {
+              console.log(res.data);
+              if (res.data.acknowledged) {
+                reset();
+                Swal.fire({
+                  icon: "success",
+                  title: "Service Added Successfully ",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+              }
+            })
+            .catch((error) => console.log(error));
         }
       })
       .catch((error) => console.log(error));
+
+    // const serviseData = {
+    //   ...data,
+    //   providerEmail: user.email,
+    //   providerPhoto: user.photoURL,
+    //   providerName: user.displayName,
+    // };
+
+    // axios
+    //   .post(`${import.meta.env.VITE_SERVER_API}/services`, serviseData)
+    //   .then((res) => {
+    //     console.log(res.data)
+    //     if(res.data.acknowledged){
+    //       reset()
+    //       Swal.fire({
+    //         icon: "success",
+    //         title: "Service Added Successfully ",
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //       });
+    //     }
+    //   })
+    //   .catch((error) => console.log(error));
   };
 
   return (
@@ -47,10 +94,14 @@ const AddService = () => {
       </Helmet>
       <div className="md:w-4/6 sm:my-20 my-12">
         <h1 className="md:text-4xl text-3xl font-bold text-primary dark:text-secondary uppercase mb-4">
-        Add Your Services Today
+          Add Your Services Today
         </h1>
         <p>
-        Join our platform and showcase your expertise to a wider audience. Increase your visibility and connect with clients seeking your specific services. With easy registration and seamless integration, expanding your service offerings has never been simpler. Join ShineFix and grow your business today.
+          Join our platform and showcase your expertise to a wider audience.
+          Increase your visibility and connect with clients seeking your
+          specific services. With easy registration and seamless integration,
+          expanding your service offerings has never been simpler. Join ShineFix
+          and grow your business today.
         </p>
       </div>
       <div className="md:grid grid-cols-2 gap-5 space-y-4 mb-10 md:mb-20 mt-5">
@@ -67,8 +118,7 @@ const AddService = () => {
                 <input
                   {...register("servicePhoto")}
                   className="w-full bg-third p-2 border-l-4 border border-primary dark:border-secondary"
-                  type="text"
-                  placeholder="url"
+                  type="file"
                   required
                 />
               </div>
