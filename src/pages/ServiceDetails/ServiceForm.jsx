@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 
 const ServiceForm = ({ data }) => {
   const { user } = useContext(authContext);
-  // console.log(user.email);
   const {
     _id,
     serviceName,
@@ -23,14 +22,13 @@ const ServiceForm = ({ data }) => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    // if(providerEmail === user.email){
-    //     return  Swal.fire({
-    //       title: "Oops...",
-    //       text: "Provider can't book her won service",
-    //       icon: "error"
-    //     });
-    // }
+    if(providerEmail === user.email){
+        return  Swal.fire({
+          title: "Oops...",
+          text: "Provider can't book her won service",
+          icon: "error"
+        });
+    }
 
     if(providerEmail !== data.providerEmail){
       return  Swal.fire({
@@ -45,9 +43,7 @@ const ServiceForm = ({ data }) => {
     axios
       .post(`${import.meta.env.VITE_SERVER_API}/bookedServices`, datas)
       .then((res) => {
-        // console.log(res.data);
         if (res.data.acknowledged) {
-          console.log(res.data);
           reset();
           Swal.fire({
             icon: "success",

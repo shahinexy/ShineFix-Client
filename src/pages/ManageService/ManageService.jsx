@@ -34,7 +34,6 @@ const ManageService = () => {
 
   if (isPending) return <Loader></Loader>;
   if (isError) console.log(error.message);
-  console.log(data);
 
   return (
     <div className="max-w-7xl mx-auto px-4 md:mt-20 my-10">

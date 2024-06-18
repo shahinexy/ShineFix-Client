@@ -27,7 +27,6 @@ const BookedServices = () => {
       return res.data;
     },
   });
-  console.log(data);
 
   useEffect(() => {
     const searchData = data;

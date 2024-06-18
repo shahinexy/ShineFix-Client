@@ -6,7 +6,6 @@ import { HiLocationMarker } from "react-icons/hi";
 
 const BookedServiceDetails = () => {
     const data = useLoaderData()
-    console.log(data);
     const {
         serviceName,
         servicePhoto,

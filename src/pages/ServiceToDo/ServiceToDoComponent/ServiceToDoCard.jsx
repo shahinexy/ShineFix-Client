@@ -25,7 +25,6 @@ const ServiceToDoCard = ({ data, refetch }) => {
   } = data;
 
   const handlestatus = (id, status) => {
-    console.log(status);
 
     axios
       .patch(`${import.meta.env.VITE_SERVER_API}/bookedServices/${id}`, {

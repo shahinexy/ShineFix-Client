@@ -15,9 +15,8 @@ const AddService = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
-    
+
     const photoFile = { image: data.servicePhoto[0] };
-    console.log(photoFile);
 
     axios
       .post(
@@ -32,10 +31,7 @@ const AddService = () => {
         }
       )
       .then((res) => {
-        console.log(res.data);
         if (res.data.success) {
-          console.log(res.data.data.display_url);
-
           const serviseData = {
             ...data,
             providerEmail: user.email,
@@ -47,7 +43,6 @@ const AddService = () => {
           axios
             .post(`${import.meta.env.VITE_SERVER_API}/services`, serviseData)
             .then((res) => {
-              console.log(res.data);
               if (res.data.acknowledged) {
                 reset();
                 Swal.fire({
@@ -62,29 +57,6 @@ const AddService = () => {
         }
       })
       .catch((error) => console.log(error));
-
-    // const serviseData = {
-    //   ...data,
-    //   providerEmail: user.email,
-    //   providerPhoto: user.photoURL,
-    //   providerName: user.displayName,
-    // };
-
-    // axios
-    //   .post(`${import.meta.env.VITE_SERVER_API}/services`, serviseData)
-    //   .then((res) => {
-    //     console.log(res.data)
-    //     if(res.data.acknowledged){
-    //       reset()
-    //       Swal.fire({
-    //         icon: "success",
-    //         title: "Service Added Successfully ",
-    //         showConfirmButton: false,
-    //         timer: 1500
-    //       });
-    //     }
-    //   })
-    //   .catch((error) => console.log(error));
   };
 
   return (

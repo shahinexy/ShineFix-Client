@@ -16,7 +16,6 @@ const ManageServiceForm = ({data, refetch}) => {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     axios.patch(`${import.meta.env.VITE_SERVER_API}/services/id/${_id}`, data)
     .then(res => {
       console.log(res);

@@ -16,7 +16,6 @@ const Register = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
 
     if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(data.pass)) {
       return toast.error(

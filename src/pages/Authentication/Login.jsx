@@ -15,7 +15,6 @@ const Login = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
 
   const { register, handleSubmit } = useForm();
 
